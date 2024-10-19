@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "chatrooms#index"
-  resources :chatrooms
+  resources :chatrooms do
+    resources :messages 
+  end
   # get "/chatrooms", to: "chatrooms#index"
 
 

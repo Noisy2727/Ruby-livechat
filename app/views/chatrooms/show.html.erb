@@ -1,3 +1,31 @@
 <h1><%= @chatroom.title %></h1>
 
 <p><%= @chatroom.body %></p>
+
+<h2>Messages</h2>   
+<% @chatroom.messages.each do |message| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= message.messenger %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= message.body %>
+  </p>
+<% end %>
+
+<h2>Chat:</h2>
+<%= form_with model: [ @chatroom, @chatroom.messages.build ] do |form| %>
+  <p>
+    <%= form.label :messenger %><br>
+    <%= form.text_field :messenger %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
