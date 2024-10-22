@@ -5,12 +5,12 @@
 <h2>Messages</h2>   
 <% @chatroom.messages.each do |message| %>
   <p>
-    <strong>Commenter:</strong>
+    <strong>Messenger:</strong>
     <%= message.messenger %>
   </p>
 
   <p>
-    <strong>Comment:</strong>
+    <strong>Message:</strong>
     <%= message.body %>
   </p>
 <% end %>
