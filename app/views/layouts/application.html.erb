@@ -18,6 +18,13 @@
   </head>
 
   <body>
+
+    <div id="banner" style="background-color: #4CAF50; color: white; text-align: center;">
+      <p>current user:<%= current_user ? current_user.username : "Not logged in" %></p>
+    </div>
+    
     <%= yield %>
+
   </body>
+
 </html>
