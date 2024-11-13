@@ -5,25 +5,20 @@
 <h2>Messages</h2>   
 <% @chatroom.messages.each do |message| %>
   <p>
-    <strong>Messenger:</strong>
-    <%= message.messenger %>
+    <%= message.messenger %>: <%= message.body %>
   </p>
 
   <p>
-    <strong>Message:</strong>
-    <%= message.body %>
   </p>
 <% end %>
 
-<h2>Chat:</h2>
 <%= form_with model: [ @chatroom, @chatroom.messages.build ] do |form| %>
+
+  <%= form.hidden_field :messenger, value: current_user ? current_user.username : "Not logged in" %>
+
   <p>
-    <%= form.label :messenger %><br>
-    <%= form.text_field :messenger %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.label :Chat %><br>
+    <%= form.text_field :body %>
   </p>
   <p>
     <%= form.submit %>
