@@ -20,8 +20,29 @@ class ChatroomsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  def edit
+    @article = Chatroom.find(params[:id])
+  end
+
+  def update
+    @article = Chatroom.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @article = Chatroom.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+  
   private
   def chatroom_params
-    params.require(:chatroom).permit(:title, :body)
+    params.require(:chatroom).permit(:title, :body, :owner)
   end
 end

@@ -1,21 +1,15 @@
-<h1>New Chatroom</h1>
+<h1>Edit Chatroom</h1>
 
 <%= form_with model: @chatroom do |form| %>
 
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
-    <% @chatroom.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
   </div>
 
   <div>
     <%= form.label :body %><br>
     <%= form.text_area :body %>
-    <% @chatroom.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
   </div>
   <%= form.hidden_field :owner, value: current_user ? current_user.username : "No user" %>
 

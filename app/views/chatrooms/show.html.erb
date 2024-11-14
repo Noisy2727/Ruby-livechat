@@ -1,11 +1,22 @@
 <h1><%= @chatroom.title %></h1>
 
+<p> Owned by: <%= @chatroom.owner %></p>
+
 <p><%= @chatroom.body %></p>
+
+<!--these will go in a modal with css-->
+<li><%= link_to "Edit", edit_chatroom_path(@chatroom), class: "button-link" %></li>
+
+<li><%= link_to "Destroy", chatroom_path(@chatroom), class: "delete-link", data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %></li>
 
 <h2>Messages</h2>   
 <% @chatroom.messages.each do |message| %>
   <p>
-    <%= message.messenger %>: <%= message.body %>
+    <%= message.messenger %>:
+    <%= message.body %>
   </p>
 
   <p>
@@ -14,7 +25,7 @@
 
 <%= form_with model: [ @chatroom, @chatroom.messages.build ] do |form| %>
 
-  <%= form.hidden_field :messenger, value: current_user ? current_user.username : "Not logged in" %>
+  <%= form.hidden_field :messenger, value: current_user ? current_user.username : "No user" %>
 
   <p>
     <%= form.label :Chat %><br>

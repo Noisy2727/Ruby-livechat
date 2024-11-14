@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root "chatrooms#index"
-  # root "users#index"
+  root "pages#home"
+
   resources :chatrooms do
     resources :messages 
   end
+
   get "/chatrooms", to: "chatrooms#index"
   get "/users", to: "users#index"
 
