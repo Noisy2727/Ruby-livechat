@@ -41,6 +41,10 @@ class ChatroomsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
   
+  def no_user
+    redirect_to root_path, notice: "You need to log in!"
+  end
+  
   private
   def chatroom_params
     params.require(:chatroom).permit(:title, :body, :owner)

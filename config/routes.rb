@@ -7,10 +7,12 @@ Rails.application.routes.draw do
 
   get "/chatrooms", to: "chatrooms#index"
   get "/users", to: "users#index"
+  get "/user", to: "users#show"
 
-  resources :users, only: [:new, :create]
+  resources :users
   get "/login", to: "sessions#new"  # For displaying the login form
   post "/login", to: "sessions#create"  # For handling the login submission
+  resources :sessions
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

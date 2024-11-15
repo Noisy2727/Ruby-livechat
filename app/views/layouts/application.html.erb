@@ -21,7 +21,7 @@
 
     <div id="banner" style="color: Black; text-align: left;">
       <%= link_to "Home", root_path, class: "button-link"  %>
-      current user:<%= link_to current_user ? current_user.username : "Not logged in", root_path, class: "button-link"  %>
+      current user:<%= link_to current_user ? current_user.username : "Not logged in", user_path, class: "button-link"  %>
     </div>
     
     <%= yield %>

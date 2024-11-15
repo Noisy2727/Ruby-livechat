@@ -1,0 +1,4 @@
+<% if not current_user %>
+    <%redirect_to root_path%>
+<%end%>
+<h1>Welcome <%=current_user.username%></h1>

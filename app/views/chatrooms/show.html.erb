@@ -5,12 +5,14 @@
 <p><%= @chatroom.body %></p>
 
 <!--these will go in a modal with css-->
-<li><%= link_to "Edit", edit_chatroom_path(@chatroom), class: "button-link" %></li>
+<% if @chatroom.owner == current_user.username%>
+  <li><%= link_to "Edit", edit_chatroom_path(@chatroom), class: "button-link" %></li>
 
-<li><%= link_to "Destroy", chatroom_path(@chatroom), class: "delete-link", data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
-      } %></li>
+  <li><%= link_to "Destroy", chatroom_path(@chatroom), class: "delete-link", data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        } %></li>
+<%end%>
 
 <h2>Messages</h2>   
 <% @chatroom.messages.each do |message| %>
@@ -23,15 +25,18 @@
   </p>
 <% end %>
 
-<%= form_with model: [ @chatroom, @chatroom.messages.build ] do |form| %>
+<%if current_user%>
 
-  <%= form.hidden_field :messenger, value: current_user ? current_user.username : "No user" %>
+  <%= form_with model: [ @chatroom, @chatroom.messages.build ] do |form| %>
 
-  <p>
-    <%= form.label :Chat %><br>
-    <%= form.text_field :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+    <%= form.hidden_field :messenger, value: current_user ? current_user.username : "No user" %>
+
+    <p>
+      <%= form.label :Chat %><br>
+      <%= form.text_field :body %>
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+<%end%>

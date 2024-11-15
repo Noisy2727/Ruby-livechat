@@ -1,3 +1,6 @@
+<% if not current_user %>
+    <%redirect_to root_path%>
+<%end%>
 <h1>Public Chats</h1>
 
 <%@chatrooms.each do |chatroom|%>  
