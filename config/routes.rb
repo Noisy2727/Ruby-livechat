@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/chatroom"
+
   root "chatrooms#index"
   # root "users#index"
   resources :chatrooms do
-    resources :messages 
+    resources :messages
   end
   get "/chatrooms", to: "chatrooms#index"
   get "/users", to: "users#index"
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [ :new, :create ]
   get "/login", to: "sessions#new"  # For displaying the login form
   post "/login", to: "sessions#create"  # For handling the login submission
 
