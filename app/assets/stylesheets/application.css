@@ -1,4 +1,7 @@
-
+a,a:visited{
+  color: blue;  /* Ensure that links retain the same color on hover and active states */
+  text-decoration: none;  /* Optional: ensures no underline on hover/click */
+}
 .message-container {
     display: flex;            
     flex-direction: column;   
