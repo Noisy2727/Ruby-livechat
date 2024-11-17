@@ -2,38 +2,14 @@
 
 <p><%= @chatroom.body %></p>
 
-<h2>Messages</h2>   
-<% @chatroom.messages.each do |message| %>
-  <p>
-    <%= message.messenger %>: <%= message.body %>
-  </p>
-
-  <p>
-  </p>
-<% end %>
-<!--
-<%= form_with model: [ @chatroom, @chatroom.messages.build ] do |form| %>
-
-
-  <p>
-    <%= form.label :Chat %><br>
-    <%= form.text_field :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>-->
-
-<h1><%= @chatroom.title %></h1>
-
 <%= turbo_stream_from "chatroom_#{@chatroom.id}" %> <!-- Turbo Stream to listen for message updates -->
 
-<div id="messages">
+<div id="messages" class="message-container">
   <%= render @chatroom.messages %>  <!-- Render the messages for the chatroom -->
 </div>
 
 <%= form_with model: [@chatroom, @chatroom.messages.build], local: false do |form| %>
   <%= form.hidden_field :messenger, value: current_user ? current_user.username : "Not logged in" %>
-  <%= form.text_area :body, placeholder: "Type a message..." %>
+  <%= form.text_field  :body, placeholder: "Type a message..." %>
   <%= form.submit "Send" %>
 <% end %>

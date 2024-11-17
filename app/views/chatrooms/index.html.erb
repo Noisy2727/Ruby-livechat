@@ -2,12 +2,25 @@
 
 <%= turbo_stream_from "chatrooms" %>
 
-<ul>
+<!--ul class="button-list">
   <% @chatrooms.each do |chatroom| %>  
       <li>
-          <%= link_to chatroom.title, chatroom %>
+          <%= link_to chatroom.title, chatroom, class: 'button-link' %>
       </li>
   <% end %>
+</ul-->
+<ul class="button-list">
+  <% @chatrooms.each do |chatroom| %>  
+    <li class="chatroom-item">
+      <%= link_to class: 'button-link' do %>
+        <div class="chatroom-content">
+          <h3 class="chatroom-title"><%= chatroom.title %></h3>
+          <p class="chatroom-description"><%= chatroom.body %></p>
+        </div>
+      <% end %> 
+    </li>
+  <% end %>
 </ul>
+
 
 <%= link_to "New Chatroom", new_chatroom_path %>
