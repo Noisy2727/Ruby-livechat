@@ -21,10 +21,16 @@
 
     <div id="banner" style="background-color: #4CAF50; color: white; text-align: center;">
       <p>current user:<%= current_user ? current_user.username : "Not logged in" %></p>
+      <%= turbo_stream_from "chatrooms" %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     </div>
     
     <%= yield %>
+<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
   </body>
+<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
 
 </html>
+<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>

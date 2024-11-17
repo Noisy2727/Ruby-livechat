@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+  resources :rooms
+  resources :users
+  root 'rooms#index'
+  get "rooms/index"
   mount ActionCable.server => "/chatroom"
 
-  root "chatrooms#index"
+  #root "chatrooms#index"
   # root "users#index"
   resources :chatrooms do
     resources :messages
   end
-  get "/chatrooms", to: "chatrooms#index"
+  #get "/chatrooms", to: "chatrooms#index"
   get "/users", to: "users#index"
 
   resources :users, only: [ :new, :create ]
