@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_16_214146) do
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
   end
 
-  create_table "rooms", force: :cascade do |t|
+  create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.boolean "is_private", default: false
     t.datetime "created_at", null: false

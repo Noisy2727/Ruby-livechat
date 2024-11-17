@@ -1,10 +1,9 @@
-<h1>Rooms</h1>
+<h1>Chatrooms</h1>
 <div class="container">
   <h5> Hi <%= @current_user.username %> </h5>
-  <h4> Rooms </h4>
-  <%= turbo_stream_from "rooms" %>
-  <div id="rooms">
-  <%= render @rooms %>
+  <h4> Chatrooms </h4>
+  <%= turbo_stream_from "chatrooms" %>
+  <div id="chatrooms">
+  <%= render @chatrooms %>
   </div>
-
 </div>

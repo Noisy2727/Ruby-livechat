@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("RoomChannel", {
+consumer.subscriptions.create("ChatroomChannel", {
   connected() {
     console.log("Connected to the chatroom channel!")
   },

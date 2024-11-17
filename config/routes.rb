@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :rooms
+  resources :chatrooms
   resources :users
-  root 'rooms#index'
-  get "rooms/index"
+  root 'chatrooms#index'
+  get "chatrooms/index"
   mount ActionCable.server => "/chatroom"
 
   #root "chatrooms#index"

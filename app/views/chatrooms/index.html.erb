@@ -1,19 +1,13 @@
-<!--<h1>Public Chats</h1>
-
-<ul>
-    <%@chatrooms.each do |chatroom|%>  
-        <li>
-            <%= link_to chatroom.title, chatroom %>
-        </li>
-    <%end%>
-</ul>
-
-<%= link_to "New Chatroom", new_chatroom_path %>
- app/views/chatrooms/index.html.erb -->
-<h1>Chatrooms</h1>
+<h1>Public Chats</h1>
 
 <%= turbo_stream_from "chatrooms" %>
 
-<div id="chatrooms_list">
-  <%= render @chatrooms %> <!-- Render all existing chatrooms -->
-</div>
+<ul>
+  <% @chatrooms.each do |chatroom| %>  
+      <li>
+          <%= link_to chatroom.title, chatroom %>
+      </li>
+  <% end %>
+</ul>
+
+<%= link_to "New Chatroom", new_chatroom_path %>
