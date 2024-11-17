@@ -49,7 +49,7 @@
     border: 1px solid transparent; 
     cursor: pointer; 
     transition: background-color 0.3s, transform 0.3s; 
-  }
+  }  
   
   .button-link:hover {
     background-color: #0056b3; 
@@ -72,3 +72,21 @@
     margin-top: 0;             /* Remove top margin */
   }
   
+  
+  .delete-link {
+    display: inline-block; 
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center; 
+    background-color: #ff0000; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+  }  
+  .delete-link:hover {
+    background-color: #b30000; 
+    transform: translateY(-2px); 
+  }

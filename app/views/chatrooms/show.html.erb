@@ -2,6 +2,13 @@
 
 <p><%= @chatroom.body %></p>
 
+
+  <li><%= link_to "Destroy", chatroom_path(@chatroom), class: "delete-link", data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        } %></li>
+
+
 <%= turbo_stream_from "chatroom_#{@chatroom.id}" %> <!-- Turbo Stream to listen for message updates -->
 
 <div id="messages" class="message-container">

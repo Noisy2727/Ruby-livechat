@@ -1,7 +1,7 @@
 class ChatroomsController < ApplicationController
   def index
     @current_user = current_user
-    # redirect_to '' unless @current_user
+    redirect_to "pages#home" unless @current_user
     @chatrooms = Chatroom.all
   end
 
@@ -22,8 +22,16 @@ class ChatroomsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    @article = Chatroom.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
+  end
+
   private
   def chatroom_params
-    params.require(:chatroom).permit(:title, :body)
+    params.require(:chatroom).permit(:title, :body, :owner)
   end
 end
