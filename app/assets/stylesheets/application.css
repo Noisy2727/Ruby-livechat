@@ -1,7 +1,4 @@
-a,a:visited{
-  color: blue;  /* Ensure that links retain the same color on hover and active states */
-  text-decoration: none;  /* Optional: ensures no underline on hover/click */
-}
+
 .message-container {
     display: flex;            
     flex-direction: column;   
@@ -56,6 +53,25 @@ a,a:visited{
   
   .button-link:hover {
     background-color: #0056b3; 
+    transform: translateY(-2px); 
+  }
+
+  .home-link {
+    display: inline-block; 
+    padding: 10px;
+    font-size: 16px;
+    text-align: center; 
+    background-color: #10bd00; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+  }  
+  
+  .home-link:hover {
+    background-color: #0ea200; 
     transform: translateY(-2px); 
   }
   
