@@ -2,7 +2,7 @@
 
 <%= turbo_stream_from "chatrooms" %>
 
-<ul>
+<ul class="button-list">
   <% @chatrooms.each do |chatroom| %>  
       <li>
           <%= link_to chatroom.title, chatroom %>

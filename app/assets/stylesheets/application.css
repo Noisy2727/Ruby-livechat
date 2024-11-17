@@ -1,15 +1,95 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+a,a:visited{
+  color: blue;  /* Ensure that links retain the same color on hover and active states */
+  text-decoration: none;  /* Optional: ensures no underline on hover/click */
+}
+.message-container {
+    display: flex;            
+    flex-direction: column;   
+    justify-content: flex-end;
+    overflow-y: auto;         
+    height: 400px;            
+    padding: 10px;            
+    border: 1px solid #ccc;  
+    border-radius: 10px;      
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .message {
+    background-color: #e0e0e0; 
+    padding: 10px;             
+    border-radius: 5px;        
+    margin-bottom: 10px;       
+    max-width: 80%;            
+    word-wrap: break-word;     
+    font-size: 14px;           
+    color: #333;              
+  }
+  
+  .button-list {
+    display: flex;              
+    flex-wrap: wrap;            
+    gap: 10px;                  
+    padding: 0;                 
+    list-style-type: none;      
+  }
+  
+  .button-list li {
+    flex: 1 1 calc(33.33% - 10px);
+    min-width: 150px;             
+    margin: 0;                    
+  }
+  
+  .button-link {
+    display: inline-block; 
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center; 
+    background-color: #007bff; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+  }  
+  
+  .button-link:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+  }
+  
+  .button-link:active {
+    background-color: #004085; 
+    transform: translateY(0); 
+  }
+  .chatroom-title {
+    font-size: 18px;           /* Slightly larger font size for the title */
+    margin-bottom: 5px;        /* Add space between title and description */
+  }
+  
+  /* Styling for the chatroom description */
+  .chatroom-description {
+    font-size: 14px;           /* Smaller font size for the description */
+    color: #555;               /* Lighter text color for the description */
+    margin-top: 0;             /* Remove top margin */
+  }
+  
+  
+  .delete-link {
+    display: inline-block; 
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center; 
+    background-color: #ff0000; 
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid transparent; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+  }  
+  .delete-link:hover {
+    background-color: #b30000; 
+    transform: translateY(-2px); 
+  }
